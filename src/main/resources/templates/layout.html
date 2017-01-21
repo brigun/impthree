@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head th:fragment="site-head">
+	<meta charset="UTF-8"/>
+	<link rel="stylesheet" href="../public/css/styles.css" th:href="@{/css/styles.css}"/>
+	<script src="../public/js/jquery-3.1.0.min.js" th:src="@{/js/jquery-3.1.0.min.js}"></script>
+	<script src="../public/js/imp-scripts.js" th:src="@{/js/imp-scripts.js}"></script>
+	<meta th:include="this :: head" th:remove="tag"/>
+	</head><body><header th:fragment="site-header">
+	<div class="masthead"><h1><a href="index.html" th:href="@{/}">Imp</a></h1></div>
+	<a href="users/login" th:href="@{/users/login}">Login</a>
+	<a href="users/userindex" th:href="@{/users/userindex}">Users</a>
+	<a href="items/itemindex" th:href="@{/items/itemindex}">Inventory</a>
+	<a href="items/itemsbyvendor" th:href="@{/items/itemsbyvendor}">By Vendor</a>
+	<a href="items/edit" th:href="@{/items/edit}">Update</a>
+	<a href="items/create" th:href="@{/items/create}">Add Item</a>
+	<a href="vendors/vendorlist" th:href="@{/vendors/vendorlist}">Add Vendor</a>
+	<div id="logged-in-info"><span>Hello, <b>(user)</b></span>
+	<form method="post" th:action="@{/users/logout}">
+	<input type="submit" value="Logout"/></form></div>
+	</header>
+	<h1>Welcome</h1><p>Welcome to the Imp MVC Layout Page!</p>
+	<footer th:fragment="site-footer">&copy;brigun, 2017
+	<div id="git-link"><a href="https://github.com/brigun/impthree.git" th:href="@{https://github.com/brigun/impthree.git}">
+	Find it on Github</a></div></footer>
+	
+	
+	</body>
+
+</html>
