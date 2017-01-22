@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8"/>
-		<title>Imp</title>
+	<head th:replace="layout :: site-head">
+		
+		<title>Welcome to the Imp</title>
 	</head>
 	
 	<body>
+		<header th:replace="layout :: site-header"></header>
 		<h1>Welcome to the Inventory Management Project!</h1>
 		It is now <b th:text="${execInfo.now.time}"></b>
+		
+		<footer th:replace="layout :: site-footer"></footer>
 	</body>
 
 </html>
