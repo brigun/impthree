@@ -28,8 +28,8 @@ public class ItemServiceStubImpl implements ItemService
 			add(new Item("bagel, plain",1.00 , 12, "bakery", 3L));
 			add(new Item("cookie, chocolate chip", 0.65, 27, "bakery", 3L));
 			add(new Item("apple pie, frozen", 5.35, 6, "bakery", 3L));
-			add(new Item("plate, compostable, 9inch", 35, 1, "dry goods", 1L));
-			add(new Item("napkins, brown disposable", 42.00, 1, "dry goods", 1L));
+			add(new Item("plate, compostable, 9inch", 35, 1, "dry storage", 1L));
+			add(new Item("napkins, brown disposable", 42.00, 1, "dry storage", 1L));
 			add(new Item("soy sauce, gallon", 2.78, 6, "dry storage", 1L));
 			add(new Item("salt, kosher", 2.75, 2, "dry storage", 1L));
 			add(new Item("pepper, whole black", 7.86, 2, "dry storage", 1L));
@@ -101,6 +101,22 @@ public class ItemServiceStubImpl implements ItemService
 		}
 		throw new RuntimeException("Item not found: " + item.getName());
 
+	}
+
+	@Override
+	public List<String> findCategories(List<Item> items) {
+		// TODO Auto-generated method stub
+		List<String> allCategories = new ArrayList<>();
+		for(Item i : items)
+		{
+			if(!allCategories.contains(i.getCategory()))
+			{
+				allCategories.add(i.getCategory());
+			}
+		}
+
+
+		return allCategories;
 	}
 
 }

@@ -8,8 +8,16 @@
 	
 	<body>
 		<header th:replace="layout :: site-header"></header>
-		<h1>Welcome to the Inventory Management Project!</h1>
-		It is now <b th:text="${execInfo.now.time}"></b>
+		
+			<div th:if="${categories != null}">
+			<h3>Categories</h3>
+				<ul>
+					<th:block th:object="${categories}">
+					<li th:each="c : ${categories}" th:text="${c}">category</li>
+					</th:block>
+				</ul>
+			
+			</div>
 		
 		<footer th:replace="layout :: site-footer"></footer>
 	</body>

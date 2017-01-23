@@ -44,8 +44,17 @@ public class Vendor
 	
 	public Vendor(){}
 	
-	public Vendor(String name, String website, String phoneNumber) {
+	public Vendor( String name, String website, String phoneNumber) {
 		super();
+		this.name = name;
+		this.website = website;
+		this.phoneNumber = phoneNumber;
+	}
+	
+	
+	public Vendor(Long vendorId, String name, String website, String phoneNumber) {
+		super();
+		this.vendorId = vendorId;
 		this.name = name;
 		this.website = website;
 		this.phoneNumber = phoneNumber;
