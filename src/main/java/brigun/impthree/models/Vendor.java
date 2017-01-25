@@ -5,17 +5,17 @@ import java.util.Set;
 
 public class Vendor 
 {
-	private Long vendorId;
+	private Long id;
 	private String name;
 	private String website;
 	private String phoneNumber;
 	private Set<Item> catalog = new HashSet<>();
 	
 	public Long getId() {
-		return vendorId;
+		return id;
 	}
 	public void setId(Long id) {
-		this.vendorId = id;
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -44,7 +44,7 @@ public class Vendor
 	
 	public Vendor(){}
 	
-	public Vendor( String name, String website, String phoneNumber) {
+	public Vendor(String name, String website, String phoneNumber) {
 		super();
 		this.name = name;
 		this.website = website;
@@ -54,14 +54,14 @@ public class Vendor
 	
 	public Vendor(Long vendorId, String name, String website, String phoneNumber) {
 		super();
-		this.vendorId = vendorId;
+		this.id = vendorId;
 		this.name = name;
 		this.website = website;
 		this.phoneNumber = phoneNumber;
 	}
 	@Override
 	public String toString() {
-		return "Vendor [id=" + vendorId + ", name=" + name + ", website=" + website + ", phoneNumber=" + phoneNumber + "]";
+		return "Vendor [id=" + id + ", name=" + name + ", website=" + website + ", phoneNumber=" + phoneNumber + "]";
 	}
 	
 	

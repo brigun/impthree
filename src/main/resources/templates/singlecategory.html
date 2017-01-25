@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+	<title th:text="${category}">Dairy</title>
+</head>
+
+<body>
+<header th:replace="layout :: site-header"></header>
+<h1 th:text="${category}">Dairy</h1>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>Price</th>
+		</tr>
+		<tr th:each="i : ${these}">
+			<td th:text="${i.name}">bottle o' milk</td>
+			<td th:text="${i.quantity}">957</td>
+			<td th:text="${i.price}">3.98</td>
+		
+		</tr>
+		
+		
+		</table>
+
+
+
+
+</body>
+
+
+
+
+</html>

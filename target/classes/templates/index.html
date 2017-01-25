@@ -8,12 +8,17 @@
 	
 	<body>
 		<header th:replace="layout :: site-header"></header>
-		
+			<aside>
+				<h2>Top Vendors</h2>
+				<a href="#" th:each="v : ${topthree}" th:text="${v.name}"
+				th:href="@{/vendors/{id}/(id=${v.id})}">SuperFoodCo</a>
+			</aside>
 			<div th:if="${categories != null}">
-			<h3>Categories</h3>
+			<h3>View Items by Category</h3>
 				<ul>
 					<th:block th:object="${categories}">
-					<li th:each="c : ${categories}" th:text="${c}">category</li>
+					<li th:each="c : ${categories}"><a href="#" th:text="${c}"
+					th:href="@{/items/{c}/(c=${c})}">category</a></li>
 					</th:block>
 				</ul>
 			

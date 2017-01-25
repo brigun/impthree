@@ -118,5 +118,7 @@ public class ItemServiceStubImpl implements ItemService
 
 		return allCategories;
 	}
+	
+	
 
 }

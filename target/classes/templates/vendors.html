@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+	<title th:text="${vendor.name}">Generic Vendor</title>
+</head>
+
+<body>
+
+<header th:replace="layout :: site-header"></header>
+
+
+	<article class="vendors">
+		<h2 class="name" th:text="${vendor.name}">Generic Vendor</h2>
+		<ul>
+		<li><b>Phone Number: </b><span th:text="${vendor.phoneNumber}">867-5309</span></li>
+		<li><b>Website: </b><span><a href="#" th:href="@{http://{web}(web=${vendor.website})}"
+			th:text="${vendor.website}">www.getfoodhere.com</a></span></li>
+		</ul>
+		<h3>Current catalog of items from <span th:text="${vendor.name}">these guys</span></h3>
+		<table>
+		<tr>
+			<th>Category</th>
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>Price</th>
+		</tr>
+		<tr th:each="i : ${vendor.catalog}">
+			<td th:text="${i.category}">Dairy</td>
+			<td th:text="${i.name}">bottle o' milk</td>
+			<td th:text="${i.quantity}"></td>
+			<td th:text="${i.price}"></td>
+		
+		</tr>
+		
+		
+		</table>
+	
+	</article>
+	
+</body>
+
+</html>

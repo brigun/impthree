@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: site-head">
+	<title>Full Inventory</title>
+</head>
+
+<body>
+	<header th:replace="layout :: site-header"></header>
+	
+	<div id="invtable">
+		<h1>Current Inventory as of <span th:text="${execInfo.now.time}">Wednesday</span></h1>
+		<table>
+		<tr>
+			<th>Category</th>
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>Price</th>
+		</tr>
+		<tr th:each="i : ${itemlist}">
+			<td th:text="${i.category}">Dairy</td>
+			<td th:text="${i.name}">bottle o' milk</td>
+			<td th:text="${i.quantity}"></td>
+			<td th:text="${i.price}"></td>
+		
+		</tr>
+		
+		
+		</table>
+	</div>
+
+
+
+</body>
+</html>

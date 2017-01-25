@@ -8,6 +8,7 @@ public class Item
 	private double quantity;
 	private String category;
 	private Long vendorId;
+	
 	public Long getId() {
 		return itemId;
 	}

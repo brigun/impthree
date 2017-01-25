@@ -3,14 +3,24 @@ package brigun.impthree.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
+import brigun.impthree.models.Item;
 import brigun.impthree.models.Vendor;
 
+@Service
 public class VendorServiceStubImpl implements VendorService {
 	
 	private List<Vendor> vendors = new ArrayList<Vendor>()
 	//Vendor(String name, String website, String phoneNumber)
-			{{ add(new Vendor(1L, "Sysco", "www.sysco.com", "555-1212"));
+			{/**
+				 * 
+				 */
+				private static final long serialVersionUID = 5792059797947097519L;
+
+			{ add(new Vendor(1L, "Sysco", "www.sysco.com", "555-1212"));
 				add(new Vendor(2L, "Kaldis", "www.kaldiscoffee.com", "555-1212"));
 				add(new Vendor(3L, "US Foods", "www.usfoods.com", "555-1212"));
 				add(new Vendor(4L, "Industrial Soap", "www.industrialsoap.com", "555-1212"));
@@ -32,6 +42,7 @@ public class VendorServiceStubImpl implements VendorService {
 		{
 			topThree.add(vendors.get(i));
 		}
+		
 		return topThree;
 	}
 
@@ -45,7 +56,16 @@ public class VendorServiceStubImpl implements VendorService {
 				return vendors.get(i);
 			}
 		}
-		throw new RuntimeException("Vendor not found: " + vendorId);
+		//throw new RuntimeException("Vendor id#" + vendorId + " not found.");
+		return null;
+	}
+
+	@Override
+	public Set<Item> findCatalog(Long vendorId) {
+		// TODO Auto-generated method stub
+		Vendor target = this.findById(vendorId);
+		Set<Item> catalog = target.getCatalog();
+		return catalog;
 	}
 
 }
