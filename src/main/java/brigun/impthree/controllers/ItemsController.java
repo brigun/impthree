@@ -16,6 +16,7 @@ import brigun.impthree.forms.NewItemForm;
 import brigun.impthree.models.Item;
 import brigun.impthree.models.Vendor;
 import brigun.impthree.services.ItemService;
+import brigun.impthree.services.NotificationService;
 import brigun.impthree.services.VendorService;
 
 @Controller
@@ -26,6 +27,9 @@ public class ItemsController {
 	
 	@Autowired
 	private VendorService vendorService;
+	
+	@Autowired
+	private NotificationService notificationService;
 	
 	@RequestMapping("/items/{category}")
 	public String singleCategory(@PathVariable("category")String category, Model model)
@@ -61,6 +65,19 @@ public class ItemsController {
 	@RequestMapping(value="/items/new", method = RequestMethod.POST)
 	public String newItemPage(@Valid NewItemForm newItemForm, BindingResult bindingResult)
 	{
+		if(bindingResult.hasErrors())
+		{
+			notificationService.addErrorMessage("Item creation failed.  Please check your entries.");
+			return "additemform";
+		}
+		//String name, double price, double quantity, String category, Long vendorId
+		Item newItem = new Item(newItemForm.getName(),
+								newItemForm.getPrice(),
+								newItemForm.getQuantity(),
+								newItemForm.getCategory(),
+								newItemForm.getVendorId());
+		itemService.create(newItem);
+		notificationService.addInfoMessage("Item successfully added.");
 		return "additemform";
 	}
 

@@ -1,22 +1,22 @@
 package brigun.impthree.forms;
 
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 public class NewItemForm 
 {
 	@NotNull
-	@Max(50)
+	@Size(min = 3, max = 50)
 	private String name;
 	
 	@NotNull
-	@Max(25)
+	@Size(min = 2, max = 25)
 	private String category;
 	
 	@NotNull
 	private Double price;
 	
-	private Double quantity;
+	private Double quantity = 0.0;
 	
 	@NotNull
 	private Long vendorId;
