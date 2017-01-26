@@ -68,4 +68,10 @@ public class VendorServiceStubImpl implements VendorService {
 		return catalog;
 	}
 
+	@Override
+	public boolean create(Vendor vendor) {
+		
+		return vendors.add(vendor);
+	}
+
 }

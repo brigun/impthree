@@ -12,12 +12,14 @@ public class MakeVendorForm
 	private String name;
 	
 	@NotNull
-	@Pattern(regexp="^((http|https):[/][/]|www.)([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?")
+	@Pattern(regexp = "^((http|https):[/][/]|www.)([\\w-]+\\.)+[\\w-]+(/[\\w- ./?%&=]*)?",
+			message = "Please enter a valid URL.")
 	//Modeled after a regular expression posted by Bhanu Prakash on regexlib.com
 	private String website;
 	
 	@NotNull
-	@Pattern(regexp="^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$")
+	@Pattern(regexp="^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$",
+			message = "Please make certain there are ten digits in the phone number.")
 	//Modeled after a regular expression posted by Laurence O'Donnell on regexlib.com
 	private String phoneNumber;
 	
