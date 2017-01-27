@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+	<title>Update Inventory</title>
+</head>
+
+<body>
+	<header th:replace="layout :: site-header"></header>
+<h1>Update Current Inventory</h1>
+
+<div id="invtable">
+		<h3>Current Inventory as of <span th:text="${execInfo.now.time}">Wednesday</span></h3>
+		<form method="post" th:object="${updateItemForm}">
+		<table>
+		<tr>
+			<th>Category</th>
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>New Quantity</th>
+		</tr>
+		<tr th:each="i : ${itemlist}">
+			<td th:text="${i.category}">Dairy</td>
+			<td th:text="${i.name}">bottle o' milk</td>
+			<td th:text="${i.quantity}"></td>
+			<td><input type="text" th:field="*{updatedQuantity}"/></td>
+		
+		</tr>
+		</table><input type="submit" value="Update"/></form>
+	</div>
+
+<footer th:replace="Layout :: site-footer"></footer>
+</body>
+
+</html>

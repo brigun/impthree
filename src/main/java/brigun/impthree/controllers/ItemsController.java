@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import brigun.impthree.forms.NewItemForm;
+import brigun.impthree.forms.UpdateItemForm;
 import brigun.impthree.models.Item;
 import brigun.impthree.models.Vendor;
 import brigun.impthree.services.ItemService;
@@ -48,7 +49,7 @@ public class ItemsController {
 		return "itemindex";
 	}
 	
-	@RequestMapping("/items/new")
+	@RequestMapping("/items/additem")
 	public String newItem(NewItemForm newItemForm, Model model)
 	{
 		List<Item> itemList = itemService.findAll();
@@ -62,7 +63,7 @@ public class ItemsController {
 		return "additemform";
 	}
 	
-	@RequestMapping(value="/items/new", method = RequestMethod.POST)
+	@RequestMapping(value="/items/additem", method = RequestMethod.POST)
 	public String newItemPage(@Valid NewItemForm newItemForm, BindingResult bindingResult)
 	{
 		if(bindingResult.hasErrors())
@@ -79,6 +80,15 @@ public class ItemsController {
 		itemService.create(newItem);
 		notificationService.addInfoMessage("Item successfully added.");
 		return "additemform";
+	}
+	
+	@RequestMapping("/items/update")
+	public String updateItem(UpdateItemForm updateItemForm, Model model)
+	{
+		List<Item> itemList = itemService.findAll();
+		model.addAttribute("itemlist", itemList);
+		
+		return "update";
 	}
 
 }

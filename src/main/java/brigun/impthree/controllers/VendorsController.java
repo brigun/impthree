@@ -52,7 +52,8 @@ public class VendorsController
 	{
 		if(bindingResult.hasErrors())
 		{
-			notifyService.addErrorMessage("Please check the entries are correct.\nNew Vendor creation failed.");
+			notifyService.addErrorMessage("Make sure the entries are correct.");
+			notifyService.addErrorMessage("New Vendor creation failed.");
 			return "addvendor";
 		}
 		Vendor created = new Vendor(makeVendorForm.getName(),
@@ -64,7 +65,7 @@ public class VendorsController
 			return "addvendor";
 		} else
 		{
-			notifyService.addErrorMessage("Vendor creation failed.\nRe-enter the data carefully please.");
+			notifyService.addErrorMessage("Vendor creation failed. Re-enter the data carefully please.");
 			return "addvendor";
 		}
 	}

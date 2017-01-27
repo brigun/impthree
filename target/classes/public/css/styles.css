@@ -88,3 +88,9 @@ ul#messages li.error
 	color: red;
 	font-style: italic;
 }
+
+table tr.formError
+{
+	color: red;
+	font-style: italic;
+}
