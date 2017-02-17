@@ -3,13 +3,34 @@ package brigun.impthree.models;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vendors")
 public class Vendor 
 {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="vendor_id")
 	private Long id;
+	
+	@Column(nullable = false, length = 50)
 	private String name;
+	
+	@Column(nullable = true, length = 30)
 	private String website;
+	
+	@Column(nullable = false, length = 20)
 	private String phoneNumber;
-	private Set<Item> catalog = new HashSet<>();
+	
+	@OneToMany (mappedBy = "vendor")
+	private Set<Item> catalog = new HashSet<Item>();;
 	
 	public Long getId() {
 		return id;

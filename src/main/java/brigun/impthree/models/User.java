@@ -1,11 +1,25 @@
 package brigun.impthree.models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "user")
 public class User
 {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long userId;
+	
+	@Column(nullable = false, length = 30)
 	private String firstName;
+	
+	@Column(nullable = false, length = 45)
 	private String lastName;
+	
+	@Column(nullable = false, length = 30, unique = true)
 	private String username;
+	
+	@Column(length = 60)
 	private String passwordHash;
 	
 	public Long getId() {

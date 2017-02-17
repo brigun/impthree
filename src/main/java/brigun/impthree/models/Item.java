@@ -1,19 +1,44 @@
 package brigun.impthree.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="items")
 public class Item 
 {
-	private Long itemId;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(nullable = false, length = 60, unique = true )
 	private String name;
+	
+	@Column(nullable = false)
 	private double price;
+	
+	@Column(nullable = true)
 	private double quantity;
+	
+	@Column(name = "category", nullable = false)
 	private String category;
-	private Long vendorId;
+	
+	@ManyToOne(optional = false)
+	@JoinColumn(name="vendor_id")
+	private Vendor vendor;
 	
 	public Long getId() {
-		return itemId;
+		return id;
 	}
 	public void setId(Long id) {
-		this.itemId = id;
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -39,28 +64,28 @@ public class Item
 	public void setCategory(String category) {
 		this.category = category;
 	}
-	public Long getVendorId() {
-		return vendorId;
+	public Vendor getVendor() {
+		return vendor;
 	}
-	public void setVendorId(Long vendorId) {
-		this.vendorId = vendorId;
+	public void setVendor(Vendor vendor){
+		this.vendor = vendor;
 	}
 	
 	public Item(){}
 	
-	public Item(String name, double price, double quantity, String category, Long vendorId) {
+	public Item(String name, double price, double quantity, String category, Vendor vendor) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
 		this.category = category;
-		this.vendorId = vendorId;
+		this.vendor = vendor;
 	}
 	
 	@Override
 	public String toString() {
-		return "Item [id=" + itemId + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", category="
-				+ category + ", vendor=" + vendorId + "]";
+		return "Item [id=" + id + ", name=" + name + ", price=" + price + ", quantity=" + quantity + ", category="
+				+ category + ", vendor=" + vendor.getName() + "]";
 	}
 	
 	

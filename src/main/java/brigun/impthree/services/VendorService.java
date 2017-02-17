@@ -12,5 +12,5 @@ public interface VendorService
 	List<Vendor> findBig3();
 	Vendor findById(Long vendorId);
 	Set<Item> findCatalog(Long vendorId);
-	boolean create(Vendor vendor);
+	Vendor create(Vendor vendor);
 }

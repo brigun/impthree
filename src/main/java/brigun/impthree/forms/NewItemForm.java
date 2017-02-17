@@ -3,13 +3,15 @@ package brigun.impthree.forms;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class NewItemForm 
 {
-	@NotNull
+	@NotEmpty
 	@Size(min = 3, max = 50)
 	private String name;
 	
-	@NotNull
+	@NotEmpty
 	@Size(min = 2, max = 25)
 	private String category;
 	
@@ -20,7 +22,7 @@ public class NewItemForm
 	
 	@NotNull
 	private Long vendorId;
-
+	
 	public String getName() {
 		return name;
 	}

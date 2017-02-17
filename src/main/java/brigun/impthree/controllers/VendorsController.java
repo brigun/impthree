@@ -59,7 +59,7 @@ public class VendorsController
 		Vendor created = new Vendor(makeVendorForm.getName(),
 									makeVendorForm.getWebsite(),
 									makeVendorForm.getPhoneNumber());
-		if (vendorService.create(created))
+		if (vendorService.create(created).getClass() == Vendor.class)
 		{
 			notifyService.addInfoMessage("Vendor creation successful");
 			return "addvendor";

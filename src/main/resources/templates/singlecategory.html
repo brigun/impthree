@@ -13,11 +13,13 @@
 			<th>Name</th>
 			<th>Quantity</th>
 			<th>Price</th>
+			<th></th>
 		</tr>
 		<tr th:each="i : ${these}">
 			<td th:text="${i.name}">bottle o' milk</td>
 			<td th:text="${i.quantity}">957</td>
 			<td th:text="${i.price}">3.98</td>
+			<td><a href="#" th:href="@{/items/updateitem/{id}/(id=${i.id})}">edit</a></td>
 		
 		</tr>
 		

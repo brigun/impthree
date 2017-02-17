@@ -3,7 +3,6 @@ package brigun.impthree.services;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Set;
 
 import org.springframework.stereotype.Service;
 
@@ -61,17 +60,18 @@ public class VendorServiceStubImpl implements VendorService {
 	}
 
 	@Override
-	public Set<Item> findCatalog(Long vendorId) {
+	public List<Item> findCatalog(Long vendorId) {
 		// TODO Auto-generated method stub
 		Vendor target = this.findById(vendorId);
-		Set<Item> catalog = target.getCatalog();
+		List<Item> catalog = target.getCatalog();
 		return catalog;
 	}
 
 	@Override
-	public boolean create(Vendor vendor) {
+	public Vendor create(Vendor vendor) {
 		
-		return vendors.add(vendor);
+		vendors.add(vendor);
+		return vendor;
 	}
 
 }

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+	<title>Delete Item</title>
+</head>
+
+<body>
+<h1>Delete <span th:text="${target.name}"></span></h1>
+
+<div>Are you certain you want to irrevocably delete this item from the database?</div>
+
+<form method="post" th:object="${}">
+<input type="submit" value="Delete!"/>
+</form>
+
+
+
+
+</body>
+
+</html>

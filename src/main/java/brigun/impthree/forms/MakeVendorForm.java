@@ -18,9 +18,9 @@ public class MakeVendorForm
 	private String website;
 	
 	@NotNull
-	@Pattern(regexp="^\\D?(\\d{3})\\D?\\D?(\\d{3})\\D?(\\d{4})$",
+	@Pattern(regexp="^(\\([2-9]|[2-9])(\\d{2}|\\d{2}\\))(-|.|\\s)?\\d{3}(-|.|\\s)?\\d{4}$",
 			message = "Please make certain there are ten digits in the phone number.")
-	//Modeled after a regular expression posted by Laurence O'Donnell on regexlib.com
+	//Modeled after a regular expression posted by Mark J. Krisburg on regexlib.com
 	private String phoneNumber;
 	
 	public String getName()

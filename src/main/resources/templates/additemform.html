@@ -14,11 +14,12 @@
 			th:errors="*{name}">Name</span>
 			
 		<div><label for="category">Category: </label></div>
-			<select th:field="*{category}">
+			<input list="catlist" type="text" th:field="*{category}"/>
+				<datalist id="catlist">
 				<option th:each="c : ${categories}"
 						th:value="${c}"
-						th:text="${c}">
-			Dairy</option></select><span class="formError" th:if="${#fields.hasErrors('category')}"
+						th:text="${c}"/>
+			</datalist><span class="formError" th:if="${#fields.hasErrors('category')}"
 			th:errors="*{category}"></span>
 			
 		<div><label for="price">Price: </label></div>
