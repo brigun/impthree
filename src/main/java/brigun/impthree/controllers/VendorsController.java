@@ -69,4 +69,12 @@ public class VendorsController
 			return "addvendor";
 		}
 	}
+	
+	@RequestMapping("/vendors/catalog")
+	public String listOfVendors(Model model)
+	{
+		List<Vendor> vendors = vendorService.findAll();
+		model.addAttribute("vendors", vendors);
+		return "vendorlist";
+	}
 }

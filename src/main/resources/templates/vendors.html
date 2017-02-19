@@ -30,6 +30,7 @@
 			<td th:text="${i.name}">bottle o' milk</td>
 			<td th:text="${i.quantity}"></td>
 			<td th:text="${i.price}"></td>
+			<td><a href="#" th:href="@{/items/updateitem/{id}/(id=${i.id})}">edit</a></td>
 		
 		</tr>
 		

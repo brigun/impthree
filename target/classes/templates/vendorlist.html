@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layout :: site-head">
+	<title >Vendors</title>
+</head>
+
+<body>
+	<header th:replace="layout :: site-header"></header>
+	
+	<h1>Current Vendors</h1>
+		<ul>
+			<li th:each="v : ${vendors}"><a href="#" th:text="${v.name}"
+			th:href="@{/vendors/{v}/(v=${v.id})}">category</a></li>
+			
+		</ul>
+	
+	
+	<footer th:replace="layout :: site-footer"></footer>
+
+
+</body>
+</html>
