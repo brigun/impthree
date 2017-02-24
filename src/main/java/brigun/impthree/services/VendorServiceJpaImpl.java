@@ -26,7 +26,9 @@ public class VendorServiceJpaImpl implements VendorService {
 	@Override
 	public List<Vendor> findAll() {
 		// TODO Auto-generated method stub
-		return vendorRepo.findAll();
+		List<Vendor> all = vendorRepo.findAll();
+		all.sort((va, vb) -> va.getName().compareTo(vb.getName()));
+		return all;
 	}
 
 	@Override

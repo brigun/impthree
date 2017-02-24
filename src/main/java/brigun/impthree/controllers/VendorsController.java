@@ -74,6 +74,7 @@ public class VendorsController
 	public String listOfVendors(Model model)
 	{
 		List<Vendor> vendors = vendorService.findAll();
+		
 		model.addAttribute("vendors", vendors);
 		return "vendorlist";
 	}

@@ -14,11 +14,11 @@
 	<header>
 	<h1><a href="index.html" th:href="@{/}">Imp</a></h1>
 	<a href="users/login" th:href="@{/users/login}">Login</a>
-	<a href="users/userindex" th:href="@{/users/userindex}">Users</a>
+<!-- 	<a href="users/userindex" th:href="@{/users/userindex}">Users</a> -->
 	<a href="items/itemindex" th:href="@{/items/itemindex}">Current Inventory</a>
-	<a href="items/updateitem" th:href="@{/items/updateitem}">Update</a>
-	<a href="vendors/catalog" th:href="@{/vendors/catalog}">By Vendor</a>
 	<a href="items/additem" th:href="@{/items/additem}">Add Item</a>
+<!-- 	<a href="items/updateitem" th:href="@{/items/updateitem}">Update</a> -->
+	<a href="vendors/catalog" th:href="@{/vendors/catalog}">Vendors</a>
 	<a href="vendors/addvendor" th:href="@{/vendors/addvendor}">Add Vendor</a>
 	<div id="logged-in-info"><span>Hello, <b>(user)</b></span>
 	<form method="post" th:action="@{/users/logout}">
