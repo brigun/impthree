@@ -1,8 +1,12 @@
 package brigun.impthree.services;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Primary;
@@ -56,13 +60,17 @@ public class VendorServiceJpaImpl implements VendorService {
 					if (va.getCatalog().size() == vb.getCatalog().size())
 						{
 							return va.getName().compareTo(vb.getName());
-						} else
+						}else
 						{
-							return Math.max(va.getCatalog().size(),vb.getCatalog().size());
+							return Math.max(va.getCatalog().size(), vb.getCatalog().size());
 						}
 				});
-		List<Vendor> bigThree = all.subList(0, 3);
+	
+		List<Vendor> bigThree = all.subList(Math.max(all.size() - 3, 0), all.size());
+		
 		return bigThree;
+		
+		
 	}
 
 	@Override

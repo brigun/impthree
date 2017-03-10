@@ -36,8 +36,7 @@ public class LoginController {
 			return "login";
 		}
 		
-		if (!userService.authenticate(
-				loginForm.getUsername(), loginForm.getPassword()))
+		if (!userService.authenticate(loginForm.getUsername(), loginForm.getPassword()))
 		{
 			notificationService.addErrorMessage("Invalid Login!");
 			return "login";

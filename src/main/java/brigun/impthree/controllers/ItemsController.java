@@ -135,5 +135,11 @@ public class ItemsController {
 		
 		return "delete";
 	}
+	
+//	@RequestMapping(value = "/items/delete/{itemId}", method = RequestMethod.POST)
+//	public String deleteItemPage(@Valid DeleteItemForm deleteItemForm, BindingResult bindingResult)
+//	{
+//		if (bindingResult.hasErrors())
+//	}
 
 }
